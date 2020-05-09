@@ -1,0 +1,73 @@
+.slider
+  &__container
+    margin: 2rem 0rem
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center 
+  &__pagination
+    flex-basis: 100%
+    margin-top: 1rem
+    text-align: center
+    font-family: 'Pacifico', cursive
+    font-size: 1.3rem
+  &__btn-prev, &__btn-next
+    display: flex
+    align-items: center
+    width: 3.3rem
+    height: 3.3rem
+    border: solid #32184b
+    background: #fff
+    border-radius: 50%
+    outline: none
+    &:hover
+      cursor: pointer
+      background: #ece4f8
+  &__btn-prev
+    margin-right: 2rem
+  &__btn-next
+    margin-left: 2rem
+  &__post
+    position: relative
+  &__img
+    cursor: pointer
+  &__heart
+    width: 0
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    margin: auto
+    filter: drop-shadow(0px 19px 38px rgba(0, 0, 0, 0.7))
+  &__likes
+    text-align: right
+  &__animate-heart
+    animation: 2s animateLike ease-in-out forwards
+
+  @keyframes animateLike
+    0% 
+      width: 0
+    5%
+      width: 180px
+    10%
+      width: 150px
+    20%,
+    35%
+      width: 160px
+    40%,
+    100%
+      width: 0
+      
+
+  &__likes
+.prev
+  &__img
+    width: 2rem
+    margin-left: 0.3rem
+.next
+  &__img
+    width: 2rem
+    margin-left: 0.6rem
+
+    
