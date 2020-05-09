@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+//import ReactDOM from "react-dom";
 import "./slider.sass";
 import image1 from "./img/slide2.jpg";
 import image2 from "./img/slide1.jpg";

@@ -4,6 +4,13 @@ import logo from "./img/logo-heart.png";
 //import ReactDOM from 'react-dom';
 //import { render } from '@testing-library/react';
 
+/**
+ * Шапка сайта
+ *
+ * @module Navbar
+ * @version 1.0.0
+ * @author [Катерина Глаткова](https://github.com/Eglatcova)
+ */
 class Navbar extends React.Component {
   render() {
     return (
