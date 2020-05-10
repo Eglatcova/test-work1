@@ -28,10 +28,10 @@ class FooterMenu extends React.Component {
   render() {
     return (
       <div className="footer__menu">
-        <a className="footer__item" href = "#">Знакомства</a>
-        <a className="footer__item" href = "#">Поиск</a>
-        <a className="footer__item" href = "#">Лучшие</a>
-        <a className="footer__item" href = "#">О нас</a>
+        <a className="footer__item" href = "/">Знакомства</a>
+        <a className="footer__item" href = "/">Поиск</a>
+        <a className="footer__item" href = "/">Лучшие</a>
+        <a className="footer__item" href = "/">О нас</a>
       </div>
     );
   }
@@ -64,7 +64,7 @@ class Logo extends React.Component {
  render() {
    return (
      <div className="navbar__logo-wrap">
-       <img className="navbar__logo" src={logo} />
+       <img className="navbar__logo" src={logo} alt="Привет"/>
      </div>
    );
  }

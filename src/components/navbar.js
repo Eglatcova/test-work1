@@ -11,14 +11,12 @@ import logo from "./img/logo-heart.png";
  * @version 1.0.0
  * @author [Катерина Глаткова](https://github.com/Eglatcova)
  */
-class Navbar extends React.Component {
-  render() {
-    return (
-      <div className="navbar">
-        <NavbarContainer />
-      </div>
-    );
-  }
+const Navbar = () => {
+  return (
+    <div className="navbar">
+      <NavbarContainer />
+    </div>
+  )
 }
 
 class NavbarContainer extends React.Component {
@@ -48,7 +46,7 @@ class Logo extends React.Component {
   render() {
     return (
       <div className="navbar__logo-wrap">
-        <img className="navbar__logo" src={logo} />
+        <img className="navbar__logo" src={logo} alt="Привет" />
       </div>
     );
   }
@@ -65,13 +63,24 @@ class LogoName extends React.Component {
 }
 
 class Menu extends React.Component {
+  constructor(prop) {
+    super(prop);
+    this.state = {
+      buttonNavigation: [
+        {name: "Знакомства", href: "/"},
+        {name: "Поиск", href: "/"},
+        {name: "Лучшие", href: "/"},
+        {name: "О нас", href: "/"}
+      ]
+    }
+  }
   render() {
+    const navigationButtons = this.state.buttonNavigation.map((obj, index) =>
+      <MenuItem key={index} className="navbar__item" name={obj.name} href={obj.href} />
+    );
     return (
       <div className="navbar__allmenu">
-        <MenuItem className="navbar__item" name="Знакомства" href="#" />
-        <MenuItem className="navbar__item" name="Поиск" href="#" />
-        <MenuItem className="navbar__item" name="Лучшие" href="#" />
-        <MenuItem className="navbar__item" name="О нас" href="#" />
+        {navigationButtons}
       </div>
     );
   }
@@ -79,7 +88,7 @@ class Menu extends React.Component {
 
 class MenuItem extends React.Component {
   render() {
-    return <a className={this.props.className}href={this.props.href}>{this.props.name}</a>;
+    return <a className={this.props.className} href={this.props.href}>{this.props.name}</a>;
   }
 }
 
@@ -87,7 +96,7 @@ class Telephone extends React.Component {
   render() {
     return (
       <div>
-        <a className="navbar__telephone" href="#">+7(999)2223333</a>
+        <a className="navbar__telephone" href="/">+7(999)2223333</a>
       </div>
     );
   }

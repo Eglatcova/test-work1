@@ -7,58 +7,76 @@ import image3 from "./img/slide3.jpg";
 import image4 from "./img/slide4.jpg";
 import prev from "./img/prev.png";
 import next from "./img/next.png";
-import heart from "./img/heart.png";
+
+import Slide from "./slide";
 
 class Slider extends React.Component {
-  constructor() {
-    super();
+  constructor(prop) {
+    super(prop);
     this.state = {
-      images: [image1, image2, image3, image4],
+      slides: [
+        {img: image1, likes: "0 likes", counter: 0},
+        {img: image2, likes: "0 likes", counter: 0},
+        {img: image3, likes: "0 likes", counter: 0},
+        {img: image4, likes: "0 likes", counter: 0},
+      ],
       currentImageIndex: 0,
       isCycleMode: false,
-      likes: ["0 likes", "0 likes", "0 likes", "0 likes"],
-      heartImg: heart,
-      counter: [0, 0, 0, 0],
       classLike: "slider__heart",
     };
-    this.nextSlideHandler = this.nextSlideHandler.bind(this);
-    this.likeToggle = this.likeToggle.bind(this);
   }
 
-  nextSlideHandler(e) {
+  leafingThroughSlideHandler = (e) => {
     let newIndex = this.state.currentImageIndex;
     let newClass = this.state.classLike;
-    if (e.currentTarget.dataset.direction === "next") {
-      if (newIndex < this.state.images.length - 1) {
+
+    const nextSlide = () => {
+      if (newIndex < this.state.slides.length - 1) {
         newIndex++;
       }
-    } else {
+    }
+
+    const prevSlide = () => {
       if (newIndex > 0) {
         newIndex--;
       }
+    }
+
+    if (e.currentTarget.dataset.direction === "next") {
+      nextSlide();
+    } else {
+      prevSlide();
     }
 
     this.setState({ currentImageIndex: newIndex });
     this.setState({ classLike: newClass });
   }
 
-  likeToggle() {
+  likeToggle = () => {
+    const slideIndex = this.state.currentImageIndex;
+    let slide = {...this.state.slides[slideIndex]};
+    const likes = slide.counter + 1;
+    const likeClass = "slider__heart slider__animate-heart";
 
-    this.state.counter[this.state.currentImageIndex]++;
-    if (this.state.counter[this.state.currentImageIndex] === 1)
-      this.state.likes[this.state.currentImageIndex] =
-        this.state.counter[this.state.currentImageIndex] + " like";
-    else
-      this.state.likes[this.state.currentImageIndex] =
-        this.state.counter[this.state.currentImageIndex] + " likes";
+    let strLikes = (likes === 1) ? likes + " like" : likes + " likes";
 
-    this.state.classLike = "slider__heart slider__animate-heart";
+    const slides = [ ...this.state.slides ];
+    slide.likes = strLikes;
+    slide.counter = likes;
+    slides[slideIndex] = slide;
+
     setTimeout(() => {
-      this.state.classLike = "slider__heart";
-      this.setState({});
+      const likeClass = "slider__heart";
+      this.setState({
+        classLike: likeClass
+      });
     }, 1000);
 
-    this.setState({});
+    this.setState({
+      slides: slides,
+      currentIndex: slideIndex,
+      classLike: likeClass
+    });
   }
 
   render() {
@@ -68,33 +86,27 @@ class Slider extends React.Component {
           <button
             className="slider__btn-prev"
             data-direction="prev"
-            onClick={this.nextSlideHandler}
+            onClick={this.leafingThroughSlideHandler}
           >
-            <img className="prev__img" src={prev} />
+            <img className="prev__img" src={prev} alt="Привет"/>
           </button>
         </div>
-        <div className="slider__post">
-          <img className={this.state.classLike} src={this.state.heartImg} />
-          <img
-            className="slider__img"
-            src={this.state.images[this.state.currentImageIndex]}
-            onDoubleClick={this.likeToggle}
-          />
-          <p className="slider__likes">
-            {this.state.likes[this.state.currentImageIndex]}
-          </p>
-        </div>
+        <Slide
+          slide={this.state.slides[this.state.currentImageIndex]}
+          likeToggle={this.likeToggle}
+          classLike={this.state.classLike}
+        />
         <div>
           <button
             className="slider__btn-next"
             data-direction="next"
-            onClick={this.nextSlideHandler}
+            onClick={this.leafingThroughSlideHandler}
           >
-            <img className="next__img" src={next} />
+            <img className="next__img" src={next} alt="Привет"/>
           </button>
         </div>
         <div className="slider__pagination">
-          {this.state.currentImageIndex + 1} / {this.state.images.length}
+          {this.state.currentImageIndex + 1} / {this.state.slides.length}
         </div>
       </div>
     );
