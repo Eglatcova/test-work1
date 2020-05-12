@@ -7,8 +7,7 @@ import image3 from "./img/slide3.jpg";
 import image4 from "./img/slide4.jpg";
 import prev from "./img/prev.png";
 import next from "./img/next.png";
-
-import Slide from "./slide";
+import Slide from "./Slide";
 
 class Slider extends React.Component {
   constructor(prop) {
@@ -28,8 +27,7 @@ class Slider extends React.Component {
 
   leafingThroughSlideHandler = (e) => {
     let newIndex = this.state.currentImageIndex;
-    let newClass = this.state.classLike;
-
+    
     const nextSlide = () => {
       if (newIndex < this.state.slides.length - 1) {
         newIndex++;
@@ -47,9 +45,8 @@ class Slider extends React.Component {
     } else {
       prevSlide();
     }
-
     this.setState({ currentImageIndex: newIndex });
-    this.setState({ classLike: newClass });
+
   }
 
   likeToggle = () => {
@@ -113,42 +110,6 @@ class Slider extends React.Component {
   }
 }
 
-/*
-class ButtonPrev extends React.Component {
-  render() {
-    return (
-      <div className="slider__btn-prev">
-        <button data-direction="prev" onClick={this.nextSlideHandler}>
-          Prev
-        </button>
-      </div>
-    );
-  }
-}
 
-class ButtonNext extends React.Component {
-  render() {
-    return (
-      <div className="slider__btn-next">
-        <button data-direction="next" onClick={this.nextSlideHandler}>
-          Next
-        </button>
-      </div>
-    );
-  }
-}
-
- class Pagination extends React.Component {
-  render() {
-    return <div></div>;
-  }
-}
-
-class Img extends React.Component {
-  render() {
-    return <div></div>;
-  }
-}
- */
 
 export default Slider;

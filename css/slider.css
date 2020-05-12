@@ -1,0 +1,131 @@
+.slider__container {
+  margin: 2rem 0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.slider__pagination {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  margin-top: 1rem;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.3rem;
+}
+
+.slider__btn-prev, .slider__btn-next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 3.3rem;
+  height: 3.3rem;
+  border: solid #32184b;
+  background: #fff;
+  border-radius: 50%;
+  outline: none;
+}
+
+.slider__btn-prev:hover, .slider__btn-next:hover {
+  cursor: pointer;
+  background: #ece4f8;
+}
+
+.slider__btn-prev {
+  margin-right: 2rem;
+}
+
+.slider__btn-next {
+  margin-left: 2rem;
+}
+
+.slider__post {
+  position: relative;
+}
+
+.slider__img {
+  cursor: pointer;
+}
+
+.slider__heart {
+  width: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  -webkit-filter: drop-shadow(0px 19px 38px rgba(0, 0, 0, 0.7));
+          filter: drop-shadow(0px 19px 38px rgba(0, 0, 0, 0.7));
+}
+
+.slider__likes {
+  text-align: right;
+}
+
+.slider__animate-heart {
+  -webkit-animation: 2s animateLike ease-in-out forwards;
+          animation: 2s animateLike ease-in-out forwards;
+}
+
+@-webkit-keyframes animateLike {
+  0% {
+    width: 0;
+  }
+  5% {
+    width: 180px;
+  }
+  10% {
+    width: 150px;
+  }
+  20%,
+  35% {
+    width: 160px;
+  }
+  40%,
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes animateLike {
+  0% {
+    width: 0;
+  }
+  5% {
+    width: 180px;
+  }
+  10% {
+    width: 150px;
+  }
+  20%,
+  35% {
+    width: 160px;
+  }
+  40%,
+  100% {
+    width: 0;
+  }
+}
+
+.prev__img {
+  width: 2rem;
+  margin-left: 0.3rem;
+}
+
+.next__img {
+  width: 2rem;
+  margin-left: 0.6rem;
+}
+/*# sourceMappingURL=slider.css.map */
