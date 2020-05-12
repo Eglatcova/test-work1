@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import FooterButton from "./FooterButton"
 
 class FooterButtons extends React.Component {
@@ -7,9 +6,9 @@ class FooterButtons extends React.Component {
     super(prop);
     this.state = {
       buttonFooter: [
-        { name: "Наверх", as: {Link}, to: "/" },
-        { name: "Вход", as: {Link}, to: "/" },
-        { name: "Заполнить анкету", as: {Link}, to: "/profile" },
+        { name: "Наверх", to: "/home" },
+        { name: "Вход", to: "/home" },
+        { name: "Заполнить анкету", to: "/profile" },
       ],
     };
   }
@@ -19,7 +18,6 @@ class FooterButtons extends React.Component {
         key={index}
         className="footer__button"
         name={obj.name}
-        as={Link}
         to={obj.to}
       />
     ));
