@@ -19,7 +19,6 @@ class Page extends React.Component {
             <Route exact path="/profile" component={Profile} /> 
           </Switch>
         </Router>
-
       <Footer />
       </div>
       
