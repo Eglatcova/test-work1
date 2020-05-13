@@ -1,8 +1,7 @@
 import React from "react";
 import FooterMenu from "./FooterMenu";
 import FooterButtons from "./FooterButtons";
-import FooterLogo from "./FooterLogo";
-
+import FooterLogo from "../Navbar/LogoContainer";
 
 const FooterContainer = () => {
   return (
@@ -10,11 +9,8 @@ const FooterContainer = () => {
       <FooterMenu />
       <FooterButtons />
       <FooterLogo />
-  
     </div>
   );
 };
-
-
 
 export default FooterContainer;

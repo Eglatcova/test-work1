@@ -1,35 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 //import { render } from '@testing-library/react';
-import './style.sass';
-import Navbar from './components/Navbar/Navbar';  
-import Slider from './components/Slider/Slider';  
-import Footer from './components/Footer/Footer';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Profile from "./pages/profile/Profile.js";
+import "./style.sass";
+import App from "./App";
+import { Router } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { createStore, compose } from "redux";
+import { Provider } from "react-redux";
+import { rootReducer } from "./redux/rootReducer";
 
-class Page extends React.Component {
-  render() {
-    return (
-      <div>
-      <Navbar />
-      <Router>
-          <Switch>
-            <Route exact path="/" component={Slider} />
-            <Route exact path="/profile" component={Profile} /> 
-          </Switch>
-        </Router>
-      <Footer />
-      </div>
-      
-    );
-  }
-}
+const store = createStore(rootReducer, compose( window.__REDUX_DEVTOOLS_EXTENSION__&&window.__REDUX_DEVTOOLS_EXTENSION__()));
 
+const history = createBrowserHistory();
 
+const app = (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
 
 ReactDOM.render(
-  <Page />,
-  document.getElementById('root')
-)
-
+<Router history={history}>{app}</Router>,
+  document.getElementById("root")
+);

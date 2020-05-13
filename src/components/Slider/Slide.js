@@ -4,11 +4,12 @@ import heart from "./img/heart.png";
 
 /**
  * Компонент одного элемента слайдера
- *
- * @param slide (информация о слайде)
+ * 
+ * @param slide (информация о слайде) нпгпнгнгее 
  * @param likeToggle (функция для лайка)
  * @param classLike (класс для появляющегося лайка)
  */
+
 const Slide = ({slide, likeToggle, classLike}) => {
   return(
     <div className="slider__post">
