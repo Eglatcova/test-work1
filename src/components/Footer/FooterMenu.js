@@ -22,13 +22,8 @@ const FooterMenu = ({navButtons}) => {
 };
 
 const mapStateToProps = state =>{
-console.log(state.footer.buttonNavigation);
   return {
     navButtons: state.footer.buttonNavigation
-  /*  key: state.buttonNavigation.index,
-    className: "footer__item",
-    name:state.buttonNavigation.name,
-    href:state.buttonNavigation.href*/
   }
 }
 
